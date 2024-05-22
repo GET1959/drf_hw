@@ -1,0 +1,95 @@
+[
+  {
+    "model": "lms.course",
+    "pk": 1,
+    "fields": {
+      "title": "Введение в программирование",
+      "preview": "",
+      "description": "Общие понятия о программировании"
+    }
+  },
+  {
+    "model": "lms.course",
+    "pk": 2,
+    "fields": {
+      "title": "Погружение в профессию",
+      "preview": "",
+      "description": "Основы языка Python"
+    }
+  },
+  {
+    "model": "lms.course",
+    "pk": 3,
+    "fields": {
+      "title": "Основы backend-разработки",
+      "preview": "",
+      "description": "Работа с командной строкой"
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 1,
+    "fields": {
+      "title": "Введение в профессию и основы алгоритмизации",
+      "description": "Как устроена продуктовая команда",
+      "course": 1,
+      "preview": "",
+      "video": null
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 2,
+    "fields": {
+      "title": "Основы синтаксиса",
+      "description": "Ввод данных",
+      "course": 1,
+      "preview": "",
+      "video": null
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 3,
+    "fields": {
+      "title": "IDE и установка Python",
+      "description": "Работа с файлами",
+      "course": 2,
+      "preview": "",
+      "video": null
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 4,
+    "fields": {
+      "title": "Погружение: коллекции и вложенность",
+      "description": "Вложенные структуры",
+      "course": 2,
+      "preview": "",
+      "video": null
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 5,
+    "fields": {
+      "title": "Введение в работу с командной строкой",
+      "description": "Операционная система",
+      "course": 3,
+      "preview": "",
+      "video": null
+    }
+  },
+  {
+    "model": "lms.lesson",
+    "pk": 6,
+    "fields": {
+      "title": "Введение в работу с Git",
+      "description": "Рабочий процесс",
+      "course": 3,
+      "preview": "",
+      "video": null
+    }
+  }
+]

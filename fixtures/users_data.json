@@ -1,0 +1,62 @@
+[
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$t2nS56tI8sIa6TUGHeBs9y$Yw76Z6kyKPPegPGyZVCDAlY69fGmdsab8Gf8qUJB+XU=",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-21T18:50:58.186Z",
+      "email": "admin@sky.pro",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$UVij6DcohuJppFuRpyPW8i$fik7twgivL/09kpOfrEROXNlXF0re6dEQtb9GR4SxfQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-21T18:51:40.348Z",
+      "email": "topcyiev@mail.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$S6BAPJvOxwkaO3RqW9OJNZ$tnY55GprP2+mzdpYNzMqApyYW0lR4l7X5iagE/pLiec=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-21T18:52:13.220Z",
+      "email": "topchiev@list.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
