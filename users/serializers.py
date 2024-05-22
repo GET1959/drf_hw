@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_payment_list(self, obj):
         return [payment.__str__() for payment in Payment.objects.filter(user=obj)]
+
     class Meta:
         model = User
         fields = "__all__"
