@@ -18,6 +18,9 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
+    def __str__(self):
+        return f"{self.email}"
+
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
@@ -38,3 +41,9 @@ class Payment(models.Model):
     class Meta:
         verbose_name = "оплата"
         verbose_name_plural = "оплата"
+
+
+class Subscription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="пользователь")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="курс")
+    update_date = models.DateField(auto_now_add=True, verbose_name="дата обновления")
