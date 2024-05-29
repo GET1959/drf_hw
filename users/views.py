@@ -34,6 +34,7 @@ class UserRetrieveAPIView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 class UserUpdateAPIView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
