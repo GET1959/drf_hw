@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 
 from lms.models import Course
 from users.models import User, Payment, Subscription
-from users.serializers import UserSerializer, PaymentSerializer, SubscriptionSerializer  # , UserAlienSerializer
+from users.serializers import UserSerializer, PaymentSerializer, SubscriptionSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
