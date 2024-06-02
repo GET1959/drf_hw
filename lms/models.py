@@ -9,6 +9,7 @@ class Course(models.Model):
     preview = models.ImageField(
         upload_to="lms/images", **NULLABLE, verbose_name="Просмотр", help_text="Загрузите изображение"
     )
+    price = models.PositiveIntegerField(default=0, verbose_name="сумма оплаты")
     description = models.TextField(verbose_name="Описание", help_text="Добавьте описание")
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name="Владелец", help_text="Укажите владельца"
@@ -28,6 +29,7 @@ class Lesson(models.Model):
     course = models.ForeignKey(
         Course, on_delete=models.SET_NULL, verbose_name="Курс", help_text="Укажите курс", **NULLABLE
     )
+    price = models.PositiveIntegerField(default=0, verbose_name="сумма оплаты")
     preview = models.ImageField(upload_to="lms/images", **NULLABLE, verbose_name="Просмотр",
                                 help_text="Загрузите изображение")
     video = models.TextField(**NULLABLE, verbose_name="Ссылка на видео", help_text="Укажите ссылку на видео")
