@@ -1,5 +1,7 @@
 from rest_framework import viewsets
-from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import (CreateAPIView, DestroyAPIView,
+                                     ListAPIView, RetrieveAPIView,
+                                     UpdateAPIView)
 
 from lms.models import Course, Lesson
 from lms.paginators import CustomPagination

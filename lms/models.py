@@ -12,7 +12,11 @@ class Course(models.Model):
     price = models.PositiveIntegerField(default=0, verbose_name="сумма оплаты")
     description = models.TextField(verbose_name="Описание", help_text="Добавьте описание")
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name="Владелец", help_text="Укажите владельца"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        **NULLABLE,
+        verbose_name="Владелец",
+        help_text="Укажите владельца"
     )
 
     def __str__(self):
@@ -34,7 +38,11 @@ class Lesson(models.Model):
                                 help_text="Загрузите изображение")
     video = models.TextField(**NULLABLE, verbose_name="Ссылка на видео", help_text="Укажите ссылку на видео")
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name="Владелец", help_text="Укажите владельца"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        **NULLABLE,
+        verbose_name="Владелец",
+        help_text="Укажите владельца"
     )
 
     def __str__(self):

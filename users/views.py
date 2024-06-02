@@ -1,14 +1,16 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, generics
+from rest_framework import generics, viewsets
 from rest_framework.filters import OrderingFilter
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from lms.models import Course
-from users.models import User, Payment, Subscription
-from users.serializers import UserSerializer, PaymentSerializer, SubscriptionSerializer, SendPaymentSerializer
-from users.services import create_stripe_price, create_stripe_session, create_stripe_product
+from users.models import Payment, Subscription, User
+from users.serializers import (PaymentSerializer, SendPaymentSerializer,
+                               SubscriptionSerializer, UserSerializer)
+from users.services import (create_stripe_price, create_stripe_product,
+                            create_stripe_session)
 
 
 class UserViewSet(viewsets.ModelViewSet):

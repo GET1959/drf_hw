@@ -10,4 +10,3 @@ class VideoValidator:
         tmp_val = dict(value).get(self.field)
         if tmp_val and "youtube.com" not in tmp_val:
             raise ValidationError("Используется ссылка на внешний ресурс.")
-

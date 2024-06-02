@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
-from users.models import User, Payment, Subscription, SendPayment
+from users.models import Payment, SendPayment, Subscription, User
 
 
 class UserSerializer(serializers.ModelSerializer):
