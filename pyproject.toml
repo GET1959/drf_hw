@@ -18,6 +18,10 @@ ipython = "^8.24.0"
 setuptools = "^70.0.0"
 drf-yasg = "^1.21.7"
 stripe = "^9.9.0"
+eventlet = "^0.36.1"
+celery = "^5.4.0"
+redis = "^5.0.4"
+django-celery-beat = "^2.6.0"
 
 
 [tool.poetry.group.lint.dependencies]
