@@ -6,6 +6,8 @@ from rest_framework.generics import (CreateAPIView, DestroyAPIView,
 from lms.models import Course, Lesson
 from lms.paginators import CustomPagination
 from lms.serializers import CourseSerializer, LessonSerializer
+from lms.tasks import course_update_notification
+from users.models import Subscription
 from users.permissions import IsModerator, IsOwner
 
 
@@ -30,6 +32,12 @@ class CourseViewSet(viewsets.ModelViewSet):
         elif self.action == "destroy":
             self.permission_classes = (~IsModerator | IsOwner,)
         return super().get_permissions()
+
+    def perform_update(self, serializer):
+        """При внесении изменений в курс отправляет уведомление подписанным польователям."""
+        up_course = serializer.save()
+        course_update_notification.delay(up_course.id)
+        up_course.save()
 
 
 class LessonCreateAPIView(CreateAPIView):
