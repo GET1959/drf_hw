@@ -1,3 +1,7 @@
+from datetime import datetime, timedelta
+
+import pytz
+from django.conf import settings
 from rest_framework import viewsets
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
@@ -7,7 +11,6 @@ from lms.models import Course, Lesson
 from lms.paginators import CustomPagination
 from lms.serializers import CourseSerializer, LessonSerializer
 from lms.tasks import course_update_notification
-from users.models import Subscription
 from users.permissions import IsModerator, IsOwner
 
 
@@ -36,7 +39,13 @@ class CourseViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         """При внесении изменений в курс отправляет уведомление подписанным польователям."""
         up_course = serializer.save()
-        course_update_notification.delay(up_course.id)
+        timezone = pytz.timezone(settings.TIME_ZONE)
+        now = datetime.now(timezone)
+        four_days = timedelta(days=4)
+        has_passed = now - up_course.up_date
+        if has_passed > four_days:
+            course_update_notification.delay(up_course.id)
+        up_course.up_date = now
         up_course.save()
 
 
@@ -70,6 +79,18 @@ class LessonUpdateAPIView(UpdateAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsOwner | IsModerator,)
+
+    def perform_update(self, serializer):
+        """При внесении изменений в урок отправляет уведомление подписанным польователям."""
+        up_lesson = serializer.save()
+        timezone = pytz.timezone(settings.TIME_ZONE)
+        now = datetime.now(timezone)
+        four_days = timedelta(days=4)
+        has_passed = now - up_lesson.up_date
+        if has_passed > four_days:
+            course_update_notification.delay(up_lesson.course_id)
+        up_lesson.up_date = now
+        up_lesson.save()
 
 
 class LessonDestroyAPIView(DestroyAPIView):

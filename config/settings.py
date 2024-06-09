@@ -96,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC'  # 'Etc/GMT-3'
 
 USE_I18N = True
 
@@ -127,7 +127,7 @@ CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 
 CELERY_BEAT_SCHEDULE = {
     "auto_block_user": {
-        "task": "lms.tasks.auto_block_user",
+        "task": "users.tasks.auto_block_user",
         "schedule": timedelta(days=1),
     },
 }

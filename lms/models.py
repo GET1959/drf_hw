@@ -1,5 +1,8 @@
+import pytz
+from datetime import datetime
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 NULLABLE = {"blank": True, "null": True}
 
@@ -11,6 +14,7 @@ class Course(models.Model):
     )
     price = models.PositiveIntegerField(default=0, verbose_name="сумма оплаты")
     description = models.TextField(verbose_name="Описание", help_text="Добавьте описание")
+    up_date = models.DateTimeField(default=timezone.now, verbose_name="Дата обновления")
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -37,6 +41,7 @@ class Lesson(models.Model):
     preview = models.ImageField(upload_to="lms/images", **NULLABLE, verbose_name="Просмотр",
                                 help_text="Загрузите изображение")
     video = models.TextField(**NULLABLE, verbose_name="Ссылка на видео", help_text="Укажите ссылку на видео")
+    up_date = models.DateTimeField(default=timezone.now, verbose_name="Дата обновления")
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,

@@ -14,9 +14,8 @@ def course_update_notification(course_id):
     subs = subs.select_related("user")
 
     recipient_list = subs.values_list("user__email", flat=True)
-
     send_mail(
-        subject=f"Об измененияхв курсе {course.title}",
+        subject=f"Об изменениях в курсе {course.title}",
         message=f"Обновлен курс {course.title}. Изменения: {course.description}",
         recipient_list=recipient_list,
         from_email=settings.EMAIL_HOST_USER
