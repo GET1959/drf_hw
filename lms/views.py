@@ -39,13 +39,13 @@ class CourseViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         """При внесении изменений в курс отправляет уведомление подписанным польователям."""
         up_course = serializer.save()
-        # timezone = pytz.timezone(settings.TIME_ZONE)
-        # now = datetime.now(timezone)
+        timezone = pytz.timezone(settings.TIME_ZONE)
+        now = datetime.now(timezone)
         # four_days = timedelta(days=4)
         # has_passed = now - up_course.up_date
         # if has_passed > four_days:
         #     course_update_notification.delay(up_course.id)
-        # up_course.up_date = now
+        up_course.up_date = now
         course_update_notification.delay(up_course.id)
         up_course.save()
 
